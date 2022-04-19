@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ /* Navigation
+    -header
+        -container
+    -main
+        -container
+        -footer */
+    
+header {
+    /* height: 103px; */
+    background: rgba(246, 246, 246, 1);
+    padding: 25px 0 25px 0;
+    box-sizing: border-box;
+
+}
+.header__container {
+    padding: 0 20px;
+  
+    max-width: 1350px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header__container img {
+
+    object-fit: cover;
+}
+
+.header__menu {
+    box-sizing: border-box;
+    width: 100%;
+    /* почему нельзя height: 100%; */
+}
+.menu__list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu__list_item {
+    list-style-type: none;
+}
+a.line {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: inherit;
+    display: block;
+    position: relative;
+}
+
+/* для подчеркивания */
+
+a.line {
+    overflow: hidden;
+}
+a.line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    /* можно по-другому скрыть подчеркивание? */
+    left: -1px;
+    width: 100%;
+    height: 0.1em;
+    background-color: rgb(0, 0, 0);
+    /* opacity: 0; */
+    transition: opacity 300ms, transform 300ms;
+    opacity: 1;
+    transform: translateX(-100%);
+    border-radius: 5px;
+}
+a.line:hover::after,
+a.list__link:focus::after {
+    transform: translateX(0);
+}
+
+/*  */
+.header__profile {
+    width: 14%;
+}
+
+.profile__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.profile__list_item {
+    list-style-type: none;
+    /* display: inline-block; */
+}
+main {
+    height: 90vh;
+    box-sizing: border-box;
+    background: url(../images/background.png) 100% 100% no-repeat;
+    background-size:contain;
+}
+.main__container {
+    
+    padding: 0 20px;
+    height: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* justify-content: space-around; */
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 105px; */
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.content__card {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    /* transform: perspective(600px) rotateY(0deg); */
+}
+.front {
+    transform: perspective(600px) rotateY(0deg);
+    backface-visibility: hidden;
+    transition: transform .6s;
+    perspective: 600px;
+}
+.center {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50% ;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat";
+}
+
+
+
+.back {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    background-color: #f6f6f6;
+    transition: transform .6s;
+    box-sizing: border-box;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.card__items {
+    width: 100%;
+    height: 100%;
+}
+
+.content__card:hover > .front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.content__card:hover > .back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.content__card:nth-child(2) {
+    margin: 0 20px 140px 20px;
+    margin-bottom: 140px;
+}
+
+.footer {
+    height: 10%;
+}
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__messenger  {
+    display: flex;
+    align-items: center;
+}
+
+.footer__messenger_list {
+    list-style-type: none;
+}
+
+.footer__messenger_list a > svg path {
+    transition: .3s;
+}
+.footer__messenger_list:nth-child(2) {
+    margin: 0 82px;
+}
+
+/* a.lang {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+} */
+
+a.lang {
+    color: #FFFFFF;
+}
+a.lang::after {
+    background-color: #ffffff;
+}
+
+
+.twit:hover path {
+    fill: #49a7e6;
+}
+.face:hover path {
+    fill: #0461d3;
+}
+.inst:hover path {
+    fill: #8a49a1;
+}
+
+.prof path {
+    transition: .3s;
+}
+
+.like path {
+    transition: .3s;
+}
+
+.prof:hover path{
+    fill: #0461d3;
+}
+.like:hover path {
+    fill: #EF2C2C;
+}
+
+@media screen and (max-width: 1150px) {
+    .header__profile {
+        width: 18%;
+    }
+}
+
+@media screen and (max-width: 952px) {
+    .header__profile {
+        width: 23%;
+    }
+}
+
+@media screen and (max-width: 804px) {
+    .header__container {
+        padding: 0px 0px;
+        height: 100%;
+        max-width: 1350px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .header__container img {
+        height: 23%;
+        box-sizing: border-box;
+    }
+    header {
+        height: 19vh;
+        padding: 15px 0 6px 0;
+        /* padding: 0; */
+    }
+    main {
+        height: 81vh;
+
+    }
+}
+
+@media screen and (max-width: 605px) {
+    nav.header__profile {
+        width: 40%;
+    }
+}
+
+/* @media screen and (max-width: 412px) {
+    main {
+        height: 100%;
+
+    }
+} */
